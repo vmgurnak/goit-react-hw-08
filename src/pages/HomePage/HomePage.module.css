@@ -1,0 +1,8 @@
+.homePageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  font-size: 22px;
+}

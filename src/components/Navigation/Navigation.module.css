@@ -1,0 +1,29 @@
+.navigationList {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 767px) {
+  .navigationList {
+    flex-direction: row;
+    gap: 15px;
+    font-size: 18px;
+  }
+}
+
+.navigationLink {
+  padding: 5px 5px;
+}
+
+@media screen and (min-width: 767px) {
+  .navigationLink {
+    padding: 20px 5px;
+  }
+}
+
+.active {
+  color: var(--dark-grey);
+}

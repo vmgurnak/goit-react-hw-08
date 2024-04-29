@@ -1,0 +1,57 @@
+.contactFormWrap {
+  width: 300px;
+
+  padding: 10px;
+  margin-bottom: 20px;
+
+  border: 1.5px solid #1b1b1b;
+  border-radius: 5px;
+}
+
+.contactForm {
+}
+
+.contactFormLabel {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contactFormInputWrap {
+  margin-bottom: 10px;
+}
+
+.contactFormInput {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+
+  font-family: inherit;
+
+  outline: none;
+  border: 1px solid #1b1b1b;
+  border-radius: 3px;
+}
+
+.contactFormInput:focus {
+  border-color: #6c8cff;
+  border-width: 2px;
+}
+
+.errorMessage {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.contactFormBtn {
+  margin: 0 auto;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #1b1b1b;
+  background-color: #e8e8e8;
+}
+
+.contactFormBtn:focus {
+  color: #fff;
+  background-color: #7e847f;
+}

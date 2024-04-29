@@ -1,0 +1,20 @@
+.header {
+  padding-bottom: 20px;
+}
+
+.headerList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom: 2px solid var(--dark-grey);
+  padding: 20px 0;
+}
+
+@media screen and (min-width: 767px) {
+  .headerList {
+    flex-direction: row;
+    padding: 5px 0;
+  }
+}
