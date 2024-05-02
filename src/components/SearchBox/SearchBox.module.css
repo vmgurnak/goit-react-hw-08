@@ -1,0 +1,21 @@
+.searchBoxWrap {
+  margin-bottom: 20px;
+}
+
+.searchBoxTitle {
+  margin-bottom: 5px;
+}
+
+.searchBoxInput {
+  width: 300px;
+  padding: 5px 10px;
+
+  border: 1.5px solid #1b1b1b;
+  border-radius: 5px;
+  outline: none;
+}
+
+.searchBoxInput:focus {
+  border-color: #6c8cff;
+  border-width: 2px;
+}

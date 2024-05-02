@@ -1,5 +1,6 @@
 import ContactForm from '../../components/ContactForm/ContactForm';
 import DocumentTitle from '../../components/DocumentTitle';
+import Searchbox from '../../components/Searchbox/Searchbox';
 
 import css from './ContactsPage.module.css';
 
@@ -11,9 +12,9 @@ const ContactsPage = () => {
         <h1 className={css.title}>Phonebook</h1>
 
         <ContactForm />
-        {/* <SearchBox />
-        {loading && <Loader />}
-        {error && <ErrorMessage />} */}
+        <Searchbox />
+        {/* {loading && <Loader />} */}
+        {/* {error && <ErrorMessage />} */}
 
         {/* <ContactList /> */}
       </div>
