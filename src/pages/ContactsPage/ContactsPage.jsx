@@ -13,10 +13,10 @@ const ContactsPage = () => {
 
         <ContactForm />
         <Searchbox />
-        {/* {loading && <Loader />} */}
-        {/* {error && <ErrorMessage />} */}
+        {loading && <Loader />}
+        {error && <ErrorMessage />}
 
-        {/* <ContactList /> */}
+        <ContactList />
       </div>
     </div>
   );
