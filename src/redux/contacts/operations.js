@@ -3,7 +3,7 @@ import {
   requestAddContact,
   requestContacts,
   requestDeleteContact,
-} from '../services/api';
+} from '../../services/api';
 
 // fetchContacts - одержання масиву контактів (метод GET) запитом.
 export const fetchContacts = createAsyncThunk(

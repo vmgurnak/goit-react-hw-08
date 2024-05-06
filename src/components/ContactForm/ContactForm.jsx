@@ -1,10 +1,10 @@
 import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import css from './ContactForm.module.css';
-// import { addContact } from '../../../../goit-react-hw-07/src/redux/contactsOps';
+import { addContact } from '../../redux/contacts/operations';
 
 // Validation shema
 const FeedbackShema = Yup.object().shape({
@@ -26,15 +26,14 @@ const initialValues = {
 
 // Component ContactForm with Formik
 const ContactForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // id for label and field
   const nameId = useId();
   const numberId = useId();
 
   // Callback function for Submit
   const handleSubmitFormik = (values, actions) => {
-    console.log(values);
-    // dispatch(addContact(values));
+    dispatch(addContact(values));
     actions.resetForm();
   };
 

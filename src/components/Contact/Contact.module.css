@@ -1,0 +1,56 @@
+.contactWrap {
+  display: flex;
+
+  align-items: center;
+
+  width: 300px;
+  height: 100%;
+
+  padding: 10px 20px;
+  border: 1.5px solid #1b1b1b;
+  border-radius: 5px;
+}
+
+.contactData {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 150px;
+  overflow: hidden;
+}
+
+.contactCont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contactIconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 24px;
+  height: 24px;
+}
+
+.contactIcon {
+}
+
+.contactTitle {
+  word-break: break-all;
+}
+
+.contactBtn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #1b1b1b;
+  background-color: #e8e8e8;
+}
+
+.contactBtn:focus {
+  color: #fff;
+  background-color: #7e847f;
+}
