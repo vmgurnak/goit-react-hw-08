@@ -9,21 +9,21 @@ import css from './LoginForm.module.css';
 // Validation shema
 const FeedbackShema = Yup.object().shape({
   password: Yup.string()
-    .min(6, 'Too Short!')
-    .max(12, 'Too Long!')
-    .required('Required'),
-  email: Yup.string().email('Must be a valid email!').required('Required'),
+    .min(8, 'Password must be at least 8 characters!')
+    .required('Password is required!'),
+  email: Yup.string()
+    .email('Must be a valid email!')
+    .required('Email is required!'),
 });
 
 // initialValues
 const initialValues = {
-  name: '',
   email: '',
   password: '',
 };
 
 // Component ContactForm with Formik
-const LoginForm = () => {
+const LoginForm = ({ onLogin }) => {
   // const dispatch = useDispatch();
   // id for label and field
   const emailId = useId();
@@ -31,7 +31,8 @@ const LoginForm = () => {
 
   // Callback function for Submit
   const handleSubmitFormik = (values, actions) => {
-    console.log(values);
+    // console.log(values);
+    onLogin(values);
     // dispatch(addContact(values));
     actions.resetForm();
   };
@@ -50,6 +51,7 @@ const LoginForm = () => {
           <div className={css.contactFormInputWrap}>
             <Field
               className={css.contactFormInput}
+              placeholder="Enter email"
               type="email"
               name="email"
               id={emailId}
@@ -67,6 +69,7 @@ const LoginForm = () => {
           <div className={css.contactFormInputWrap}>
             <Field
               className={css.contactFormInput}
+              placeholder="Enter password"
               type="password"
               name="password"
               id={passwordId}

@@ -11,12 +11,10 @@ const RegisterPage = () => {
   };
 
   return (
-    <>
+    <div>
       <DocumentTitle>RegisterPage</DocumentTitle>
-      <div>
-        <RegisterForm onRegister={onRegister}></RegisterForm>
-      </div>
-    </>
+      <RegisterForm onRegister={onRegister}></RegisterForm>
+    </div>
   );
 };
 

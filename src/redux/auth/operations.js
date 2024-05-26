@@ -25,6 +25,7 @@ export const apiLoginUser = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const data = await requestSignIn(formData);
+      console.log('data: ', data);
 
       return data;
     } catch (err) {

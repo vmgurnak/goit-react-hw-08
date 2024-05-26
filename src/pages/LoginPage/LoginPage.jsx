@@ -1,14 +1,20 @@
+import { useDispatch } from 'react-redux';
+import { apiLoginUser } from '../../redux/auth/operations';
+
 import DocumentTitle from '../../components/DocumentTitle';
 import LoginForm from '../../components/LoginForm/LoginForm';
 
-import { useDispatch, useSelector } from 'react-redux';
-
 const LoginPage = () => {
   const dispatch = useDispatch();
+
+  const onLogin = (data) => {
+    dispatch(apiLoginUser(data));
+  };
+
   return (
     <div>
       <DocumentTitle>LoginPage</DocumentTitle>
-      <LoginForm />
+      <LoginForm onLogin={onLogin} />
     </div>
   );
 };

@@ -36,8 +36,8 @@ const RegisterForm = ({ onRegister }) => {
   const passwordId = useId();
 
   // Callback function for Submit
-  const handleSubmitFormik = (data, actions) => {
-    onRegister(data);
+  const handleSubmitFormik = (values, actions) => {
+    onRegister(values);
     // dispatch(addContact(values));
     actions.resetForm();
   };
