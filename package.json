@@ -22,7 +22,8 @@
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.23.0",
     "yup": "^1.4.0",
-    "react-helmet-async": "^2.0.4"
+    "react-helmet-async": "^2.0.4",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

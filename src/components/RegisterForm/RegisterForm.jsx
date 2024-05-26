@@ -9,13 +9,15 @@ import css from './RegisterForm.module.css';
 // Validation shema
 const FeedbackShema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  number: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+    .min(3, 'User name must be at least 3 characters!')
+    .max(50, 'User name must be less than 50 characters!')
+    .required('User name is required!'),
+  password: Yup.string()
+    .min(8, 'Password must be at least 8 characters!')
+    .required('Password is required!'),
+  email: Yup.string()
+    .email('Must be a valid email!')
+    .required('Email is required!'),
 });
 
 // initialValues
@@ -26,7 +28,7 @@ const initialValues = {
 };
 
 // Component ContactForm with Formik
-const RegisterForm = () => {
+const RegisterForm = ({ onRegister }) => {
   // const dispatch = useDispatch();
   // id for label and field
   const nameId = useId();
@@ -34,8 +36,8 @@ const RegisterForm = () => {
   const passwordId = useId();
 
   // Callback function for Submit
-  const handleSubmitFormik = (values, actions) => {
-    console.log(values);
+  const handleSubmitFormik = (data, actions) => {
+    onRegister(data);
     // dispatch(addContact(values));
     actions.resetForm();
   };
@@ -47,13 +49,14 @@ const RegisterForm = () => {
         onSubmit={handleSubmitFormik}
         validationSchema={FeedbackShema}
       >
-        <Form className={css.contactForm} autoComplete="off">
+        <Form className={css.contactForm} autoComplete="off" noValidate>
           <label className={css.contactFormLabel} htmlFor={nameId}>
             Name
           </label>
           <div className={css.contactFormInputWrap}>
             <Field
               className={css.contactFormInput}
+              placeholder="Enter name"
               type="text"
               name="name"
               id={nameId}
@@ -71,6 +74,7 @@ const RegisterForm = () => {
           <div className={css.contactFormInputWrap}>
             <Field
               className={css.contactFormInput}
+              placeholder="Enter email"
               type="email"
               name="email"
               id={emailId}
@@ -88,6 +92,7 @@ const RegisterForm = () => {
           <div className={css.contactFormInputWrap}>
             <Field
               className={css.contactFormInput}
+              placeholder="Enter password"
               type="password"
               name="password"
               id={passwordId}
@@ -98,8 +103,12 @@ const RegisterForm = () => {
               component="div"
             />
           </div>
-          <button className={css.contactFormBtn} type="submit">
-            Add contact
+          <button
+            className={css.contactFormBtn}
+            title="Click to register user"
+            type="submit"
+          >
+            Register
           </button>
         </Form>
       </Formik>

@@ -5,12 +5,12 @@ const instance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
-// Функция для установки токена в instance, token приходит с сервера
+// Utility to add JWT / Функция для установки токена в instance, token приходит с сервера
 export const setToken = (token) => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// Функция для очищения токена
+// Utility to remove JWT / Функция для очищения токена
 export const clearToten = () => {
   instance.defaults.headers.common.Authorization = '';
 };
@@ -18,6 +18,7 @@ export const clearToten = () => {
 // Сервис на регистрацию, создание пользователя
 export const requestSignUp = async (formData) => {
   const { data } = await instance.post('/users/signup', formData);
+  // установка токена
   setToken(data.token);
   return data;
 };

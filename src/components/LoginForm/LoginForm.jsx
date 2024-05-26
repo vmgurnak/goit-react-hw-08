@@ -8,14 +8,11 @@ import css from './LoginForm.module.css';
 
 // Validation shema
 const FeedbackShema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
+  password: Yup.string()
+    .min(6, 'Too Short!')
+    .max(12, 'Too Long!')
     .required('Required'),
-  number: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+  email: Yup.string().email('Must be a valid email!').required('Required'),
 });
 
 // initialValues
@@ -46,7 +43,7 @@ const LoginForm = () => {
         onSubmit={handleSubmitFormik}
         validationSchema={FeedbackShema}
       >
-        <Form className={css.contactForm} autoComplete="off">
+        <Form className={css.contactForm} autoComplete="off" noValidate>
           <label className={css.contactFormLabel} htmlFor={emailId}>
             Email
           </label>
@@ -81,7 +78,7 @@ const LoginForm = () => {
             />
           </div>
           <button className={css.contactFormBtn} type="submit">
-            Add contact
+            Log In
           </button>
         </Form>
       </Formik>
