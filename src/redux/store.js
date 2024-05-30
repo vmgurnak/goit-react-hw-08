@@ -22,14 +22,6 @@ const authConfig = {
   whitelist: ['token'],
 };
 
-// export const store = configureStore({
-//   reducer: {
-//     contacts: contactsReducer,
-//     filters: filtersReducer,
-//     auth: authReducer,
-//   },
-// });
-
 export const store = configureStore({
   reducer: {
     contacts: contactsReducer,

@@ -9,13 +9,12 @@ import { addContact } from '../../redux/contacts/operations';
 // Validation shema
 const FeedbackShema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+    .min(3, 'User name must be at least 3 characters!')
+    .max(50, 'User name must be less than 50 characters!')
+    .required('Name is required!'),
   number: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+    .min(6, 'Number must be at least 6 characters!')
+    .required('Number is required!'),
 });
 
 // initialValues
@@ -32,8 +31,9 @@ const ContactForm = () => {
   const numberId = useId();
 
   // Callback function for Submit
-  const handleSubmitFormik = (values, actions) => {
+  const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
+    // onAddContact(values);
     actions.resetForm();
   };
 
@@ -41,7 +41,7 @@ const ContactForm = () => {
     <div className={css.contactFormWrap}>
       <Formik
         initialValues={initialValues}
-        onSubmit={handleSubmitFormik}
+        onSubmit={handleSubmit}
         validationSchema={FeedbackShema}
       >
         <Form className={css.contactForm} autoComplete="off">
@@ -51,6 +51,7 @@ const ContactForm = () => {
           <div className={css.contactFormInputWrap}>
             <Field
               className={css.contactFormInput}
+              placeholder="Enter Name"
               type="text"
               name="name"
               id={nameId}
@@ -68,6 +69,7 @@ const ContactForm = () => {
           <div className={css.contactFormInputWrap}>
             <Field
               className={css.contactFormInput}
+              placeholder="+(380)-000-00-00"
               type="text"
               name="number"
               id={numberId}
@@ -78,7 +80,11 @@ const ContactForm = () => {
               component="div"
             />
           </div>
-          <button className={css.contactFormBtn} type="submit">
+          <button
+            className={css.contactFormBtn}
+            type="submit"
+            title="Click to create new contact"
+          >
             Add contact
           </button>
         </Form>

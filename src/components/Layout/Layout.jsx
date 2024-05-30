@@ -8,8 +8,10 @@ import css from './Layout.module.css';
 const Layout = ({ children }) => {
   return (
     <div className={css.container}>
-      <AppBar />
-      <Suspense fallback={<Loader />}>{children}</Suspense>
+      <header>
+        <AppBar />
+      </header>
+      <main>{children}</main>
     </div>
   );
 };
