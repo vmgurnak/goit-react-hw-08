@@ -8,7 +8,7 @@ import {
 } from './operations';
 
 const INITIAL_STATE = {
-  userData: null,
+  user: null,
   token: null, // LOCALSTORAGE PERSIST ✅
   isSignedIn: false,
   isRefreshing: false,
@@ -78,7 +78,7 @@ const authSlice = createSlice({
       ),
 });
 
-// export const selectUserData = (state) => state.auth.userData;
+// export const selectUserData = (state) => state.auth.user;
 // export const selectUserToken = (state) => state.auth.token;
 // export const selectUserIsSignedIn = (state) => state.auth.isSignedIn;
 // export const selectUserIsRefreshing = (state) => state.auth.isRefreshing;

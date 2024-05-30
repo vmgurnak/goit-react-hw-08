@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchContacts, addContact, deleteContact } from './operations';
+import { apiLogoutUser } from '../auth/operations';
 
 const INITIAL_STATE = {
   items: [],
@@ -46,7 +47,11 @@ export const contactsSlice = createSlice({
           (contact) => contact.id !== action.payload
         );
       })
-      .addCase(deleteContact.rejected, handleRejected),
+      .addCase(deleteContact.rejected, handleRejected)
+      //   LOGOUT
+      .addCase(apiLogoutUser.fulfilled, () => {
+        return INITIAL_STATE;
+      }),
 });
 
 // Reducer
