@@ -1,10 +1,10 @@
 import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
+import { apiRegisterUser } from '../../redux/auth/operations';
 import css from './RegisterForm.module.css';
-// import { addContact } from '../../../../goit-react-hw-07/src/redux/contactsOps';
 
 // Validation shema
 const FeedbackShema = Yup.object().shape({
@@ -28,8 +28,8 @@ const initialValues = {
 };
 
 // Component ContactForm with Formik
-const RegisterForm = ({ onRegister }) => {
-  // const dispatch = useDispatch();
+const RegisterForm = () => {
+  const dispatch = useDispatch();
   // id for label and field
   const nameId = useId();
   const emailId = useId();
@@ -37,8 +37,7 @@ const RegisterForm = ({ onRegister }) => {
 
   // Callback function for Submit
   const handleSubmitFormik = (values, actions) => {
-    onRegister(values);
-    // dispatch(addContact(values));
+    dispatch(apiRegisterUser(values));
     actions.resetForm();
   };
 

@@ -10,7 +10,7 @@ import {
 const INITIAL_STATE = {
   user: null,
   token: null, // LOCALSTORAGE PERSIST ✅
-  isSignedIn: false,
+  isLoggedIn: false,
   isRefreshing: false,
   isLoading: false,
   isError: false,
@@ -25,15 +25,15 @@ const authSlice = createSlice({
     builder
       .addCase(apiRegisterUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userData = action.payload.user;
+        state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isSignedIn = true;
+        state.isLoggedIn = true;
       })
       .addCase(apiLoginUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userData = action.payload.user;
+        state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isSignedIn = true;
+        state.isLoggedIn = true;
       })
       .addCase(apiLogoutUser.fulfilled, () => {
         return INITIAL_STATE;
@@ -46,8 +46,8 @@ const authSlice = createSlice({
       })
       .addCase(apiRefreshUser.fulfilled, (state, action) => {
         state.isRefreshing = false;
-        state.userData = action.payload;
-        state.isSignedIn = true;
+        state.user = action.payload;
+        state.isLoggedIn = true;
       })
       .addCase(apiRefreshUser.rejected, (state) => {
         state.isRefreshing = false;
@@ -77,13 +77,6 @@ const authSlice = createSlice({
         }
       ),
 });
-
-// export const selectUserData = (state) => state.auth.user;
-// export const selectUserToken = (state) => state.auth.token;
-// export const selectUserIsSignedIn = (state) => state.auth.isSignedIn;
-// export const selectUserIsRefreshing = (state) => state.auth.isRefreshing;
-// export const selectUserIsLoading = (state) => state.auth.isLoading;
-// export const selectUserIsError = (state) => state.auth.isError;
 
 // Reducer
 export const authReducer = authSlice.reducer;

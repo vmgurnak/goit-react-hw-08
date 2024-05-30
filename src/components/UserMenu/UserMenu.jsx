@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 
 import css from './UserMenu.module.css';
 
