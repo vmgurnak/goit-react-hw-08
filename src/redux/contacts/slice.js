@@ -1,7 +1,6 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchContacts, addContact, deleteContact } from './operations';
-import { selectNameFilter } from '../filters/slice';
 
 const INITIAL_STATE = {
   items: [],
@@ -20,9 +19,9 @@ const handleRejected = (state) => {
 };
 
 export const contactsSlice = createSlice({
-  // Ім'я слайсу
+  // Name slice
   name: 'contacts',
-  // Початковий стан редюсера слайсу
+  // Starter state reducer
   initialState: INITIAL_STATE,
 
   extraReducers: (builder) =>
@@ -50,20 +49,5 @@ export const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, handleRejected),
 });
 
-// Редюсер слайсу
+// Reducer
 export const contactsReducer = contactsSlice.reducer;
-
-// функції-селектори для використання в useSelector
-export const selectContacts = (state) => state.contacts.items;
-export const selectLoading = (state) => state.contacts.loading;
-export const selectError = (state) => state.contacts.error;
-
-export const selectFilterContacts = createSelector(
-  [selectContacts, selectNameFilter],
-  (items, name) => {
-    const filterContacts = items.filter((item) =>
-      item.name.toLowerCase().includes(name.toLowerCase())
-    );
-    return filterContacts;
-  }
-);

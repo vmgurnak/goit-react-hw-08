@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { selectUserIsSignedIn } from '../../redux/auth/slice';
+import { selectUserIsSignedIn } from '../../redux/auth/selectors';
 
 import css from './Navigation.module.css';
 

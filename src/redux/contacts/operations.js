@@ -5,7 +5,7 @@ import {
   requestDeleteContact,
 } from '../../services/contactsApi';
 
-// fetchContacts - одержання масиву контактів (метод GET) запитом.
+// fetchContacts get array of contacts (метод GET).
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
@@ -18,7 +18,7 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-// addContact - додавання нового контакту (метод POST).
+// addContact - add new contact (метод POST).
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, thunkAPI) => {
@@ -31,7 +31,7 @@ export const addContact = createAsyncThunk(
   }
 );
 
-// deleteContact - видалення контакту по ID (метод DELETE).
+// deleteContact - delete contact (метод DELETE).
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {

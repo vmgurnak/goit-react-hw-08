@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {
   selectUserIsRefreshing,
   selectUserIsSignedIn,
-} from '../../redux/auth/slice';
+} from '../../redux/auth/selectors';
 
 const PrivateRoute = ({ children, redirectTo = '/login' }) => {
   const isSignedIn = useSelector(selectUserIsSignedIn);

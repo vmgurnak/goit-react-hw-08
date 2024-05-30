@@ -9,7 +9,7 @@ import { fetchContacts } from '../../redux/contacts/operations';
 import { useEffect } from 'react';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { selectError, selectLoading } from '../../redux/contacts/slice';
+import { selectError, selectLoading } from '../../redux/contacts/selectors';
 
 import css from './ContactsPage.module.css';
 

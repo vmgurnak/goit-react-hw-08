@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import css from './UserMenu.module.css';
 
 import { useSelector } from 'react-redux';
-import { selectUserData } from '../../redux/auth/slice';
+import { selectUserData } from '../../redux/auth/selectors';
 import { apiLogoutUser } from '../../redux/auth/operations';
 
 const UserMenu = () => {

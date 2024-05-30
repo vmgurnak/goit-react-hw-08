@@ -5,11 +5,11 @@ const INITIAL_STATE = {
 };
 
 export const filtersSlice = createSlice({
-  // Ім'я слайсу
+  // Name slice
   name: 'filters',
-  // Початковий стан редюсера слайсу
+  // Starter state reducer
   initialState: INITIAL_STATE,
-  // Об'єкт редюсерів
+  // Object reducers
   reducers: {
     changeFilter(state, action) {
       state.name = action.payload;
@@ -17,11 +17,8 @@ export const filtersSlice = createSlice({
   },
 });
 
-// Генератори Action Creator
+// Generators Action Creator
 export const { changeFilter } = filtersSlice.actions;
 
-// Редюсер слайсу
+// Reducer slice
 export const filtersReducer = filtersSlice.reducer;
-
-// функції-селектори для використання в useSelector
-export const selectNameFilter = (state) => state.filters.name;
